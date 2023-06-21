@@ -1,2 +1,1 @@
-#Répertoire personnel de Tristan
-Et oui, c'est mon répertoire
+#Répertoire de Grandgirard Tristan
