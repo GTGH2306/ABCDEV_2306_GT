@@ -1,7 +1,7 @@
 Exercice 1.1
 VARIABLE
-    Nombre1 : reel
-    Nombre2 : reel
+    Nombre1 : entier
+    Nombre2 : entier
     Restultat : reel
 
 Debut programme
@@ -10,7 +10,7 @@ Debut programme
     Lire <-- Nombre1
     Ecrire "Veuillez saisir le second nombre: "
     Lire <-- Nombre2
-    Resultat <-- (A + B)/2
+    Resultat <-- (Nombre1 + Nombre2)/2
     Ecrire "La moyenne de ", Nombre1, " et ", Nombre2, " est de: ", Resultat
 Fin programme
 
