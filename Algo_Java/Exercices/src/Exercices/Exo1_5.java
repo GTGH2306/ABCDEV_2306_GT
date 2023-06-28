@@ -20,5 +20,7 @@ public class Exo1_5 {
 		a = b;
 		b = temp;
 		System.out.println("Votre valeur A est maintenant " + a + " et votre valeur B est maintenant " + b);
+		
+		scanner.close();
 	}
 }
