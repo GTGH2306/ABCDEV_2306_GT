@@ -22,14 +22,10 @@ public class JusteChiffre {
 			essai = scanner.nextInt();
 			if (essai > nombreint) {
 				compteur += 1;
-				if (compteur < essaimax) {
-					System.out.println("C'est moins !");				
-				}
+				System.out.println("C'est moins !");				
 			} else if (essai < nombreint) {
 				compteur += 1;
-				if (compteur < essaimax) {
-					System.out.println("C'est plus !");				
-				}
+				System.out.println("C'est plus !");				
 
 			} else if (essai == nombreint) {
 				System.out.println("Vous avez trouve ! Le nombre etait bien " + nombreint + " !");
