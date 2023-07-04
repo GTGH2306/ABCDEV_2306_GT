@@ -24,4 +24,4 @@ public class Exo2_4 {
 	sc.close();
 	}
 
-}
+} 

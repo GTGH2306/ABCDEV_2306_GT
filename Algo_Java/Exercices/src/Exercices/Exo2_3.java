@@ -29,7 +29,7 @@ public class Exo2_3 {
 					pos3 = nbrb;
 					resolu = true;
 				} else {
-					System.out.println("Les valeurs saisies sont invalides, assurez vous de saisir des valeurs differentes.");
+					System.out.println("B et C sont egaux, assurez vous de saisir des valeurs differentes.");
 				}
 				
 			}else if (nbrb < nbra && nbrb < nbrc ) { //Test si B est en première position
@@ -43,7 +43,7 @@ public class Exo2_3 {
 					pos3 = nbra;
 					resolu = true;
 				} else {
-					System.out.println("Les valeurs saisies sont invalides, assurez vous de saisir des valeurs differentes.");
+					System.out.println("A et C sont egaux, assurez vous de saisir des valeurs differentes.");
 				}
 				
 			} else if (nbrc < nbra && nbrc < nbrb ) { //Test si C est en première position
@@ -57,11 +57,15 @@ public class Exo2_3 {
 					pos3 = nbrb;
 					resolu = true;
 				} else {
-					System.out.println("Les valeurs saisies sont invalides, assurez vous de saisir des valeurs differentes.");
+					System.out.println("A et B sont egaux, assurez vous de saisir des valeurs differentes.");
 				}
+			} else if (nbra > nbrb && nbrb == nbrc){ //Dans le cas ou B et C sont egaux mais A n'est pas en pos1
+				System.out.println("B et C sont egaux, assurez vous de saisir des valeurs differentes.");
 				
+			} else if (nbrc > nbra && nbra == nbrb) { //Dans le cas ou A et B sont egaux mais C n'est pas en pos1
+				System.out.println("A et B sont egaux, assurez vous de saisir des valeurs differentes.");
 			} else {
-				System.out.println("Les valeurs saisies sont invalides, assurez vous de saisir des valeurs differentes.");
+				System.out.println("A, B et C sont egaux, assurez vous de saisir des valeurs differentes.");
 			}
 		}
 		System.out.println("Dans l'ordre croissant les valeurs sont: ");

@@ -19,7 +19,7 @@ public class Exo1_4 {
 		annees = scanner.nextFloat();
 		System.out.println("Entrez le taux d'interet en pourcents: ");
 		interet = scanner.nextFloat();
-		interet /= 100;
+		interet /= 100d;
 		resultat = somme * (1 + interet * annees);
 		resultat = Math.round(resultat * 100.0) / 100.0;
 		System.out.println("La somme gagnee serait de " + resultat + " euros pour un taux d'interet simple.");
