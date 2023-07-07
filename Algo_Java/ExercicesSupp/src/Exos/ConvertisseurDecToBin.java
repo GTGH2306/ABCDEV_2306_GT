@@ -16,17 +16,20 @@ public class ConvertisseurDecToBin {
 			if (Valide.isInt(saisie)) {
 				int div = 0;
 				invalide = false;
-				dec = Valide.stringToInt(saisie);
+				dec = Integer.parseInt(saisie);
 				while (dec != 0) {
 					dec /= 2;
 					div ++;
 				}
 				
-				dec = Valide.stringToInt(saisie);
-				for (int i = 0; dec != 0 ; i++) {
-					if ((dec % 2) == 1) {
-						bin += Math.pow(2, (div - i));
-						dec /= 2;
+				dec = Integer.parseInt(saisie);
+				for (int i = 1; i != div ; i++) {
+					System.out.println(Math.pow(2 , (div - i)));
+					if (dec - Math.pow(2 , (div - i)) > 0) {
+						bin += Math.pow(10 , (div - i));
+						dec -= Math.pow(2 , (div - i));
+						System.out.println(dec);
+						
 					}
 				}
 			} else {
