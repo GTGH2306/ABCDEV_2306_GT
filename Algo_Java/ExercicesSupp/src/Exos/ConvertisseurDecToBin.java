@@ -23,13 +23,10 @@ public class ConvertisseurDecToBin {
 				}
 				
 				dec = Integer.parseInt(saisie);
-				for (int i = 1; i != div ; i++) {
-					System.out.println(Math.pow(2 , (div - i)));
-					if (dec - Math.pow(2 , (div - i)) > 0) {
+				for (int i = 1; i <= div ; i++) {
+					if (dec - Math.pow(2 , (div - i)) >= 0) {
 						bin += Math.pow(10 , (div - i));
 						dec -= Math.pow(2 , (div - i));
-						System.out.println(dec);
-						
 					}
 				}
 			} else {
