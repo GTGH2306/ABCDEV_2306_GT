@@ -33,7 +33,7 @@ public class Exo7 {
 			resultat = "battu";
 		}
 		System.out.println("Guignol 1 est " + resultat + " avec " + pourcent +"% des voies.");
-		
+		sc.close();
 	}
 
 }
