@@ -15,7 +15,7 @@ public class Exo2_7 {
 		boolean virgule = false;
 		
 		do {
-			if (invalide == true) {
+			if (invalide) {
 				System.out.println("Saisie invalide.");
 				System.out.println("Saisissez un nombre en Km entre 0.01 et 1 000 000 ou q pour quitter:");
 				saisie = sc.next();
@@ -35,14 +35,14 @@ public class Exo2_7 {
 					}
 				}
 			}
-			if (invalide == false && quitter == false) {
+			if (!invalide && !quitter) {
 				km = Double.parseDouble(saisie);
 				if (km < 0.01 || km > 1000000) {
 					invalide = true;
 				}
-			}	
-		} while (invalide == true);
-		if (quitter == false) {
+			}
+		} while (invalide);
+		if (!quitter) {
 			mi = km * 1.609;
 			mi = Math.round(mi * 100) / 100d;
 			System.out.println(km + " Km correspond a " + mi + " miles.");
