@@ -1,0 +1,21 @@
+VARIABLE
+A est un entier
+B est un entier
+
+Debut Programme
+    Ecrire "Saisissez valeur de A :"
+    Lire <-- A
+    Ecrire "Saisissez valeur de B :"
+    Lire <-- B
+
+    Si A < B
+        Alors
+        Ecrire A B
+    Sinon Si B < A
+        Alors
+        Ecrire B A
+    Sinon
+        Alors
+        Ecrire "A et B sont égaux"
+    Fin Si
+Fin Programme

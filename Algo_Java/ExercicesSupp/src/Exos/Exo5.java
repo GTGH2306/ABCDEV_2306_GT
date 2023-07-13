@@ -12,8 +12,8 @@ public class Exo5 {
 		if (copies > 10) {
 			copies -= 10;
 			prix += 1d;
-			if (copies > 10) {
-				copies -= 10;
+			if (copies > 20) {
+				copies -= 20;
 				prix += 0.9d;
 				prix += copies * 0.08d;
 			} else {
