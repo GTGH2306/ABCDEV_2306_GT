@@ -15,7 +15,8 @@ booléen (bool) (avec majuscule a True ou False)
 (Le typage est automatique en Python)
 """
 
-age_personne = int(input("Entrez votre âge : "))
+age_personne = input("Entrez votre âge : ")
+age_personne = int(age_personne)
 continuer_partie = True
 nom_personne = input("Entrez votre nom : ")
 prix_ht = 120.85
