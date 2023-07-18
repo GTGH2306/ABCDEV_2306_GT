@@ -20,7 +20,7 @@ public class Exo9 {
 		annee = sc.nextInt();
 		
 		if (jour > 0 && mois > 0 && mois < 13 && annee != 0) {
-			if (((annee % 4 == 0 && annee % 100 !=0) || annee % 400 == 0) && annee > 0) {
+			if (((annee % 4 == 0 && annee % 100 != 0) || annee % 400 == 0) && annee > 0) {
 				bisextile = true;
 			} else {
 				bisextile = false;
