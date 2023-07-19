@@ -5,12 +5,20 @@ import java.util.Scanner;
 public class Tirage {
 	public static void main(String[] args) {
 		
-		for (int i = 0; i < 15; i++) {
-			System.out.println(Tirage.tire());
+		Scanner scanner = new Scanner(System.in);
+		int total = 0;
+		String cardtemp;
+		
+		while (total < 100) {
+			cardtemp= Tirage.tire();
+			System.out.println("Vous tirez un " + cardtemp);
+			
+			total += Tirage.valeur(cardtemp, scanner);
+			
+			System.out.println("Votre total devient " + total);
 		}
 		
-		
-		
+		scanner.close();
 	}
 	
 	
@@ -39,8 +47,7 @@ public class Tirage {
 		
 		return carte;
 	}
-	public static int valeur(String carte) {
-		Scanner sc = new Scanner(System.in);
+	public static int valeur(String carte, Scanner sc) {
 		int valeur = 0;
 		String saisie;
 		
@@ -51,11 +58,11 @@ public class Tirage {
 		case "2", "3", "4", "5", "6", "7", "8", "9":
 			valeur = Integer.parseInt(carte);
 			break;
-		default:
+		default :
 			boolean valide;
 			do {
 				System.out.println("L'As vaut 1 ou 11 ?");
-				saisie = sc.next();
+				saisie = sc.nextLine();
 				if (saisie.equals("1")) {
 					valeur = 1;
 					valide = true;
@@ -69,7 +76,29 @@ public class Tirage {
 			} while (!valide);
 			break;
 		}
-		sc.close();
+		return valeur;
+	}
+	
+	public static int valeurAuto(String carte, int total) {
+		int valeur = 0;
+		
+		switch(carte) {
+		case "Roi", "Dame", "Valet", "10":
+			valeur = 10;
+			break;
+		case "2", "3", "4", "5", "6", "7", "8", "9":
+			valeur = Integer.parseInt(carte);
+			break;
+		default :
+			if (total + 11 < 22) {
+				valeur = 11;
+				System.out.println("Cet As vaut 11.");
+			} else {
+				valeur = 1;
+				System.out.println("Cet As vaut 1.");
+			}
+			break;
+		}
 		return valeur;
 	}
 }
