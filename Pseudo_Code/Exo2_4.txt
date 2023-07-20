@@ -1,0 +1,15 @@
+VARIABLES
+SAISIE : entier
+
+DEBUT PROGRAMME
+	ECRIRE "Saisissez une année: "
+	LIRE <-- SAISIE
+	
+	SI (SAISIE % 4 = 0 ET SAISIE % 100 NON = 0) OU SAISIE % 400 = 0
+		ALORS
+		ECRIRE SAISIE, " est une année bissesxtile."
+	SINON
+		ALORS
+		ECRIRE SAISIE, " n'est pas une année bissesxtile."
+	FIN SI
+FIN PROGRAMME

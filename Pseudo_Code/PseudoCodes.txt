@@ -1,0 +1,27 @@
+//Test
+VARIABLES
+DEBUT
+PROGRAMME
+FONCTION
+FIN
+TANT QUE
+SI
+ALORS
+SINON
+
+ECRIRE
+LIRE
+<--
+: réel
+: entier
+: chaîne de caractères
+: caractère
+: booléen
+
+VRAI
+FAUX
+
+()[]
++ - % * =
+< > <= >=
+ET OU NON

@@ -23,9 +23,24 @@ public class Exo8 {
 			System.out.println("Saisissez l'argent que vous donnez : ");
 			saisie = sc.nextInt();
 		}
+		
+		
 		monnaie = saisie - total;
-		System.out.println("Le vendeur doit vous rendre " + monnaie + " euros.");
+		while (monnaie > 0) {
+			if (monnaie >= 10) {
+				System.out.println("Le vendeur vous rend 10 Euros.");
+				monnaie -= 10;
+			} else if (monnaie > 5) {
+				System.out.println("Le vendeur vous rend 5 Euros.");
+				monnaie -= 5;
+			} else {
+				System.out.println("Le vendeur vous rend 1 Euros.");
+				monnaie -= 1;
+			}
+		}
+		
 		sc.close();
+		
 	}
 
 }

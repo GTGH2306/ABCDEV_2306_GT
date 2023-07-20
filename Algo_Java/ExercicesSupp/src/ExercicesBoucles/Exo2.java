@@ -1,5 +1,4 @@
 package ExercicesBoucles;
-
 import java.util.Scanner;
 
 public class Exo2 {

@@ -1,16 +1,16 @@
-VARIABLE
-    Age est un entier
-Debut Programme
-    Ecrire "Saisissez votre age :"
-    Lire <-- Age
-    Si Age < 0
-        Alors
-        Ecrire "Vous n'êtes pas encore né"
-    Sinon Si age < 18
-        Alors
-        Ecrire "Vous êtes mineur"
-    Sinon
-        Alors
-        Ecrire "Vous êtes majeur"
-    Fin Si
-Fin Programme
+VARIABLES
+    AGE : entier
+DEBUT PROGRAMME
+    ECRIRE "Saisissez votre age :"
+    LIRE <-- AGE
+    SI AGE < 0
+        ALORS
+        ECRIRE "Vous n'êtes pas encore né"
+    SINON SI AGE < 18
+        ALORS
+        ECRIRE "Vous êtes mineur"
+    SINON
+        ALORS
+        ECRIRE "Vous êtes majeur"
+    FIN SI
+FIN PROGRAMME

@@ -1,0 +1,86 @@
+VARIABLES
+	NBRA : entier
+	NBRB : entier
+	NBRC : entier
+	POS1 : entier
+	POS2 : entier
+	POS3 : entier
+	RESOLU : booléen
+
+DEBUT PROGRAMME
+	RESOLU <-- FAUX
+	TANT QUE RESOLU = FAUX
+		ECRIRE "Saisissez valeur A"
+		LIRE <-- NBRA
+		ECRIRE "Saisissez valeur B"
+		LIRE <-- NBRB
+		ECRIRE "Saisissez valeur C"
+		LIRE <-- NBRC
+		
+		SI NBRA < NBRB ET NBRA < NBRC
+			ALORS
+			POS1 <-- NBRA
+			SI NBRB < NBRC
+				ALORS
+				POS2 <-- NBRB
+				POS3 <-- NBRC
+				RESOLU <-- VRAI
+			SINON SI NBRC < NBRB
+				ALORS
+				POS2 <-- NBRC
+				POS3 <-- NBRB
+				RESOLU <-- VRAI
+			SINON
+				ALORS
+				ECRIRE "B et C sont égaux, assurez vous de saisir des valeurs differentes."
+			FIN SI
+		SINON SI NBRB < NBRA ET NBRB < NBRC
+			ALORS
+			POS1 <-- NBRB
+			SI NBRA < NBRC
+				ALORS
+				POS2 <-- NBRA
+				POS3 <-- NBRC
+				RESOLU <-- VRAI
+			SINON SI NBRC < NBRA
+				ALORS
+				POS2 <-- NBRC
+				POS3 <-- NBRA
+				RESOLU <-- VRAI
+			SINON
+				ALORS
+				ECRIRE "C et A sont égaux, assurez vous de saisir des valeurs differentes."
+			FIN SI
+		SINON SI NBRC < NBRA ET NBRC < NBRB
+			ALORS
+			POS1 <-- NBRC
+			SI NBRA < NBRB
+				ALORS
+				POS2 <-- NBRA
+				POS3 <-- NBRB
+				RESOLU <-- VRAI
+			SINON SI NBRB < NBRA
+				ALORS
+				POS2 <-- NBRB
+				POS3 <-- NBRA
+				RESOLU <-- VRAI
+			SINON
+				ALORS
+				ECRIRE "A et B sont égaux, assurez vous de saisir des valeurs differentes."
+			FIN SI
+		SINON SI NBRA > NBRB ET NBRB = NBRC
+			ALORS
+			ECRIRE "B et C sont egaux, assurez vous de saisir des valeurs differentes."
+		SINON SI NBRC > NBRA ET NBRA = NBRB
+			ALORS
+			ECRIRE "A et B sont egaux, assurez vous de saisir des valeurs differentes."
+		SINON
+			ALORS
+			ECRIRE "A, B et C sont egaux, assurez vous de saisir des valeurs differentes."
+		FIN SI
+	FIN TANT QUE
+	
+	ECRIRE "Dans l'ordre croissant les valeurs sont: "
+	ECRIRE POS1, " < ", POS2, " < ", POS3
+	
+FIN PROGRAMME	
