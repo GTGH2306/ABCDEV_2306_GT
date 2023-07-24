@@ -63,7 +63,7 @@ public class Blackjack {
 			if (!quitter) { //Si le joueur n'as pas quitter, le fais jouer
 				tempcard= Tirage.tire(); //Tire la première carte du joueur
 				System.out.println("Vous tirez un " + tempcard);
-				valeur_j += Tirage.valeur(tempcard, sc);
+				valeur_j += Tirage.valeurAuto(tempcard, valeur_j);
 				
 				tempcard= Tirage.tire(); //Tire la deuxième carte du joueur
 				System.out.println("Vous tirez un " + tempcard);
