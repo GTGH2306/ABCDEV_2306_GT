@@ -1,0 +1,11 @@
+
+
+
+PROCEDURE Inverse(VAR ENTIER nb1, VAR ENTIER nb2)
+VARIABLES
+	temp : entier 
+DEBUT PROCEDURE
+	temp <-- nb1
+	nb1 <-- nb2
+	nb2 <-- temp
+FIN PROCEDURE
