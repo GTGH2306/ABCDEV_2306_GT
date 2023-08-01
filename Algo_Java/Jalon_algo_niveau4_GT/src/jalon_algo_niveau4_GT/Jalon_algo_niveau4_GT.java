@@ -33,7 +33,7 @@ public class Jalon_algo_niveau4_GT {
 					System.out.print("\n\t" + fibonacci[i]);
 				}
 				
-				System.out.println("\n\n" + saisie + " nombre(s) affiche(s).");
+				System.out.println("\n\n" + saisie + " nombre(s) affiché(s).");
 			}
 		} while (saisie != 0); //Si l'utilisateur a mis "0", le programme ne se relance pas et s'arrÃªte.
 		System.out.println("Fermeture programme.");
