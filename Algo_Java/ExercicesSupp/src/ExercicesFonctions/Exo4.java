@@ -15,18 +15,10 @@ public class Exo4 {
 		} else {
 			System.out.println(annee + " n'est pas une année bissextile.");
 		}
-		sc.close();
-		
+		sc.close();	
 	}
 	
 	private static boolean estBissextile(int an) {
-		
-		if ((an % 4 == 0 && an % 100 != 0) || an % 400 == 0) {
-			return true;
-		} else {
-			return false;
-		}
-		
+		return (an % 4 == 0 && an % 100 != 0) || an % 400 == 0 ;
 	}
-	
 }

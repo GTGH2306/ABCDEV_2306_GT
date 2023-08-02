@@ -1,7 +1,7 @@
 package FoncSupp;
 import java.util.Scanner;
 
-public class Exo2 {
+public class FonctionString {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Saisissez un nombre pour savoir s'il est positif ou non : ");
