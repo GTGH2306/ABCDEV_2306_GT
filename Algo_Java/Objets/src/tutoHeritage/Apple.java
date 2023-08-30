@@ -4,7 +4,6 @@ public class Apple extends Fruit implements PeelFruit {
 	
 	public Apple() {
 		super("Pomme"); //Fais appel au constructeur de la superclasse, lui donnant le paramêtre "Pomme"
-		peeled = false;
 	}
 	
 	@Override

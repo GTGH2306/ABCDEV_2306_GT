@@ -1,36 +1,59 @@
 package exerciceBarbare;
 
+import java.util.ArrayList;
+
 public class Barbarian {
 	private String name;
 	private int health;
-	private Weapon leftHand;
-	private Weapon rightHand;
+	private HandItem leftHand;
+	private HandItem rightHand;
+	private ArrayList<HandItem> inventory;
 	
-	public Barbarian(String _name, int _health, Weapon _leftHand, Weapon _rightHand) {
-		name = _name;
-		health = _health;
-		leftHand = _leftHand;
-		rightHand = _rightHand;
+	public Barbarian(String _name, int _health, HandItem _leftHand, HandItem _rightHand) {
+		this.name = _name;
+		this.health = _health;
+		this.leftHand = _leftHand;
+		this.rightHand = _rightHand;
+		this.inventory = new ArrayList<HandItem>();
 	}
 	
 	public String toString() {
-		return (this.getClass().getSimpleName() + " " +name + " *" + health + "*, L : " + leftHand + ", R : " + rightHand);
+			String retour  = (this.getClass().getSimpleName() + " " +name + " *" + health + "*, L : " + leftHand + ", R : " + rightHand);
+			retour += "\n------";
+			for (HandItem e: inventory) {
+				//REPRENDRE ICI
+			}
 	}
 	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	
 	public int attack() {
-		if (leftHand.getName().equals(rightHand.getName())) {
-			return (leftHand.getDamage() + rightHand.getDamage() + 2);
+		if(this.leftHand.getDamage() >= 0 && this.leftHand.getDamage() >= 0) {
+			if (this.leftHand.getName().equals(this.rightHand.getName())) {
+				return leftHand.getDamage() + this.rightHand.getDamage() + 2;
+			} else {
+				return leftHand.getDamage() + this.rightHand.getDamage();
+			}
+		} else if (this.rightHand.getDamage() < 0){
+			return this.leftHand.getDamage();
+		} else if (this.leftHand.getDamage() < 0){
+			return this.rightHand.getDamage();
 		} else {
-			return (leftHand.getDamage() + rightHand.getDamage());
+			return 0;
 		}
 	}
 	
 	public int defense() {
-		return health;
+		
+		if (this.leftHand.getDefense() >= 0) {
+			return (this.health + this.leftHand.getDefense());
+		} else if (this.rightHand.getDefense() >= 0) {
+			return (this.health + this.rightHand.getDefense());
+		} else {
+			return this.health;
+		}
 	}
 	
 	public void fight(Barbarian _adversaire) {
@@ -53,5 +76,9 @@ public class Barbarian {
 		
 		System.out.println(winner + " won the fight !");
 		
+	}
+	
+	public void addToInventory(HandItem _item) {
+		inventory.add(_item);
 	}
 }

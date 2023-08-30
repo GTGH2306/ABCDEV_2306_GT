@@ -1,5 +1,6 @@
 package tutoHeritage;
 
+
 public class App {
 
 	public static void main(String[] args) {
@@ -14,6 +15,8 @@ public class App {
 		} else {
 			System.out.println("Ce fruit implemente PeelFruit");
 		}
+
+		
 	}
 
 }

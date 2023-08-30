@@ -9,6 +9,9 @@ public abstract class Fruit {
 	 * Une méthode "Abstraite" ne peut être utilisé que dans une classe abstraite.
 	 * Elle devra être redéfini sur toutes les classes "enfant".
 	 * @Override permet de redéfinir une méthode héritée d'une classe parente
+	 * 
+	 * Les classes et méthodes abstraites, bien que peu utile pour le moment,
+	 * serviront surtout dans les interfaces et polymorphisme.
 	 */
 	public Fruit(String _name) {
 		name = _name;

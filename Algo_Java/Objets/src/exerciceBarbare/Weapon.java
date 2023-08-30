@@ -1,6 +1,6 @@
 package exerciceBarbare;
 
-public class Weapon {
+public class Weapon implements HandItem {
 	private String name;
 	private int damage;
 	
@@ -10,14 +10,22 @@ public class Weapon {
 	}
 	
 	public String toString() {
-		return (name + " (" + damage + ")") ;
+		return (this.name + " (" + damage + ")") ;
 	}
 	
+	@Override
 	public int getDamage() {
 		return damage;
 	}
 	
+	@Override
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public int getDefense() {
+		// TODO Auto-generated method stub
+		return -1;
 	}
 }

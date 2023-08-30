@@ -10,7 +10,7 @@ public class Test {
 		Barbarian hulk = new Barbarian("Hulk", 100, new Weapon("Dagger", 8), new Weapon("Axe", 12));
 		System.out.println(hulk);
 		
-		Barbarian olaf = new Barbarian("Olaf", 80, new Weapon("Mace", 5), new Weapon("Pique", 15));
+		Barbarian olaf = new Barbarian("Olaf", 80, new Shield(30), new Weapon("Pique", 15));
 		System.out.println(olaf.attack());
 		Barbarian zorg = new Barbarian("Zorg", 75, new Weapon("Sword", 9), new Weapon("Sword", 9));
 		System.out.println(zorg.attack());
