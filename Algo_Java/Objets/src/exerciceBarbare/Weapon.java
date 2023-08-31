@@ -20,12 +20,11 @@ public class Weapon implements HandItem {
 	
 	@Override
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	@Override
 	public int getDefense() {
-		// TODO Auto-generated method stub
 		return -1;
 	}
 }

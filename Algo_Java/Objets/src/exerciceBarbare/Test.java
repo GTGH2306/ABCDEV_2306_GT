@@ -19,6 +19,24 @@ public class Test {
 		olaf.fight(zorg);
 		
 		System.out.println(new Shield(50));
+		
+		hulk.addToInventory(new Weapon("Club", 14));
+		hulk.addToInventory(new Shield(61));
+		hulk.addToInventory(new Weapon("Spear", 11));
+
+		System.out.println(hulk);
+		
+		Ranger ranger = new Ranger("Léon", new Weapon("Sword", 11), 130);
+		System.out.println(ranger);
+		
+		ranger.learnNewSpell(4);
+		System.out.println(ranger);
+		ranger.learnNewSpell(2);
+		System.out.println(ranger);
+		
+		ranger.fight(ranger);
+		ranger.fight(olaf);
+		hulk.fight(ranger);
 	}
 
 }

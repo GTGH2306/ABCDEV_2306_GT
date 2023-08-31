@@ -20,7 +20,6 @@ public class Shield implements HandItem{
 
 	@Override
 	public int getDamage() {
-		// TODO Auto-generated method stub
 		return -1;
 	}
 
