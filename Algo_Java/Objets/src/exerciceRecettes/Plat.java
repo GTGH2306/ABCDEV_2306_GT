@@ -25,7 +25,7 @@ public class Plat {
 	}
 	
 	public void addIngredients(Ingredient _added) {
-		ingredients.add(_added);
+		this.ingredients.add(_added);
 	}
 	
 	public boolean equals(Plat _test) {
