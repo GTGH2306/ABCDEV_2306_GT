@@ -1,0 +1,5 @@
+package dnd;
+
+public enum DmgTypes {
+	CONTONDANT, TRANCHANT, PERFORANT, FEU, FORCE, POISON, TONNERRE
+}

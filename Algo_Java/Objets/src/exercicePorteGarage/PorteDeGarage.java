@@ -9,9 +9,14 @@ public class PorteDeGarage {
 		prct_ouverture  = 0;
 	}
 	
+	
 	public PorteDeGarage(boolean _verouille, double _ouverture) {
 		est_verouille = _verouille;
 		prct_ouverture  = _ouverture;
+	}
+	
+	public String toString() {
+		return ("Porte verouillée : " + this.est_verouille + "\nOuverte à " + this.prct_ouverture + "%.");
 	}
 	
 	public boolean fermerEntierement() {

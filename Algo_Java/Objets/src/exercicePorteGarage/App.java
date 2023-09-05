@@ -7,6 +7,8 @@ public class App {
 		PorteDeGarage porte2 = new PorteDeGarage(false, 0);
 		PorteDeGarage porte3 = new PorteDeGarage(false, 50);
 		PorteDeGarage porte4 = new PorteDeGarage(false, 100);
+		
+		System.out.println(porte1 + "\n" + porte2 + "\n" + porte3 + "\n" + porte4);
 	}
 
 }
