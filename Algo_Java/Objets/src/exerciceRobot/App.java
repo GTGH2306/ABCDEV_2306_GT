@@ -1,21 +1,12 @@
 package exerciceRobot;
-import exerciceRobot.Robot.Action;
 
 public class App {
 
 	public static void main(String[] args) {
 		
-		Robot toto = new Robot(15, 10, 15);
-		Manette control = new Manette();
-		control.appareillage(toto);
+		Robot toto = new Robot(15, 1, 15);
+		Interface manette = new Interface(toto);
+		manette.setVisible(true);
 		
-		control.input(Action.AVANCER);
-	
-		control.input(Action.TOURNER_DROITE);
-	
-		control.input(Action.AVANCER);
-	
-		control.input(Action.ATTAQUER);
-		control.input(Action.DETRUIRE);
 	}
 }

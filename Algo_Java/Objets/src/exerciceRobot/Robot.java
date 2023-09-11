@@ -101,4 +101,11 @@ public class Robot {
 	public double getAngle() { //Getter Angle
 		return this.angle;
 	}
+	
+	public double getPosx() { //Getter posx
+		return this.posx;
+	}
+	public double getPosy() { //Getter posy
+		return this.posy;
+	}
 }
