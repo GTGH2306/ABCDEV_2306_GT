@@ -27,6 +27,7 @@ public class Interface extends JFrame{
 		JPanel contentPanel = new JPanel(); //ajoute un Panel, qui gère le placement des éléments
 		getContentPane().add(contentPanel, BorderLayout.NORTH); //Aligne le panel sur le haut de la fenêtre
 		contentPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10)); //Aligne les éléments au milieu du panel avec une marge de 10px
+		this.setResizable(false); //Fait en sorte que la taille de la fenêtre ne puisse être changée
 		
 		JLabel lblPosX = new JLabel("Pos X :" + linked.getPosx()); //Element texte affichant la PosX
 		contentPanel.add(lblPosX); //Ajoute le label au panel
@@ -65,6 +66,8 @@ public class Interface extends JFrame{
 				lblPosY.setText("Pos Y :" + linked.getPosy());
 			}
 		});
+		
+
 		panel.add(btnDown);
 		
 		JButton btnRight = new JButton(" > "); //Bouton DROITE
