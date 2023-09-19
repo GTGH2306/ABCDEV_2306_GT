@@ -1,39 +1,15 @@
 package exerciceYoghurt;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Scanner;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import exerciceDice.ApiResponse;
 
 
 public class App {
 
 	public static void main(String[] args) throws Exception {
-		
-		//Créer une URL de l'API que je veux utiliser
-		URL url = new URL("https://api.devoldere.net/polls/yoghurts");
-		
-		
-		//Ouvre une connexion HTTP
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		
-		conn.setRequestMethod("GET");//Configure le type de requête que je veux faire
-		
-		conn.connect();//Effectue une connection avec le type de requête sp�cifi�
-		
-		//StringBuilder informationString = new StringBuilder();//Initialise un stringBuider qui stockera le retour de l'API
-		String infos = "";
-		Scanner scanner = new Scanner(url.openStream());//Ouvre un scanner qui retourne le flux de données de l'API
-		
-		while (scanner.hasNext()) {//On lit les données, et tant qu'il y'en a on les ajoute au StringBuilder
-			infos += scanner.nextLine();
-		}
-		scanner.close();
-		
-		//Stoque les infos récuperer dans une instance d'objet
-		JSONObject reponse = new JSONObject(infos);
+		JSONObject reponse = ApiResponse.getApiResponse("https://api.devoldere.net/polls/dice/");
 		//Converti le tableau au format Json dans un tableau Java
 		String[] resultats = JSONStringArrayToStringArray(reponse.getJSONArray("results"));
 		
