@@ -1,23 +1,28 @@
 package exempleVille;
 
 public class Ville {
-	private String nomVille;
-	private String nomPays;
-	private int nbHabitant;
+	public static int nbInstances = 0;
+	protected String nomVille;
+	protected String nomPays;
+	protected int nbHabitant;
 	
 	public Ville()
 	{
-		System.out.println("Création de ville avec paramêtres par défaut.");
 		nomVille = "inconnu";
 		nomPays = "inconnu";
 		nbHabitant = -1;
+		nbInstances ++;
 	}
 	
 	public Ville(String pNomVille, String pNomPays, int pNbHabitant) {
-		System.out.println("Création de ville avec paramêtres full pimpé.");
 		nomVille = pNomVille;
 		nomPays = pNomPays;
 		nbHabitant = pNbHabitant;
+		nbInstances ++;
+	}
+	
+	public void decrisToi() {
+		System.out.println("La ville de " + this.nomVille + " se situe en " + this.nomPays + " et a " + this.nbHabitant + " habitants.");
 	}
 	
 	public String getNomVille() {

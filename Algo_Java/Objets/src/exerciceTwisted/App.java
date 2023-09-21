@@ -3,17 +3,15 @@ package exerciceTwisted;
 public class App {
 
 	public static void main(String[] args) {
-		int[][] tournois =  tournois(5, 10, 3);
+		String[] colors = {"Bleu", "Vert", "Jaune", "Orange", "Rouge", "Marron"};
+		int [][] data = tournois(2, 5, 3);
+		Tournament tournoisDes = new Tournament(data, colors);
 		
-		for (int[] e : tournois) {
-			for (int f : e) {
-				System.out.print(f + " ");
-			}
-			System.out.print("\n");
-		}
+		System.out.println("Couleur gagnante: " + tournoisDes.getColor());
 		
 	}
 	
+	//Génère une liste 2D de tours pour un tournois.
 	private static int[][] tournois(int _nbJoueurs, int _nbLances, int _nbDes){
 		int[][] retour = new int[_nbJoueurs * _nbLances][_nbDes + 1];
 		int joueurId = 1;
@@ -29,16 +27,5 @@ public class App {
 		}
 		return retour;
 	}
-	
-	//Retourne le nombre de joueurs qui ont participÃ©
-		private static int getNbJoueurs(int[][] _liste) {
-			int retour = 0;
-			for (int i = 0; i < _liste.length; i++) {
-				if (_liste[i][0] > retour) {
-					retour = _liste[i][0];
-				}
-			}
-			return retour;
-		}
 
 }

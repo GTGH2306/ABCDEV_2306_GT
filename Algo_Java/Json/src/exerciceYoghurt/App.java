@@ -9,13 +9,13 @@ import exerciceDice.ApiResponse;
 public class App {
 
 	public static void main(String[] args) throws Exception {
-		JSONObject reponse = ApiResponse.getApiResponse("https://api.devoldere.net/polls/dice/");
+		JSONObject reponse = ApiResponse.getApiResponse("https://api.devoldere.net/polls/yoghurts/");
 		//Converti le tableau au format Json dans un tableau Java
 		String[] resultats = JSONStringArrayToStringArray(reponse.getJSONArray("results"));
 		
 		
 		System.out.println(ordreDecroissantCouleurs(voteCounter(resultats), ordreApparition(resultats))[0] + " " + ordreDecroissantCouleurs(voteCounter(resultats), ordreApparition(resultats))[1]);
-		
+		System.out.println(voteCounter(resultats)[0] + " " + voteCounter(resultats)[1] + " " + voteCounter(resultats)[2] + " " + voteCounter(resultats)[3] + " " + voteCounter(resultats)[4]);
 	}
 	
 	
