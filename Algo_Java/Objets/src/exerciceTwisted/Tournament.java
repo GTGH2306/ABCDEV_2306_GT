@@ -8,9 +8,10 @@ public class Tournament {
 	
 	private ArrayList<String> couleursTirees;
 	private int[] scores;
+	private double cashPrize;
 	
 	
-	public Tournament(int[][] _tours, String[] _colors) {
+	public Tournament(int[][] _tours, String[] _colors, double _cashPrize) {
 		tabTours = _tours;
 		colors = _colors;
 		couleursTirees = new ArrayList<String>();
@@ -21,11 +22,28 @@ public class Tournament {
 		for (int i = 0; i < scores.length; i++) {
 			scores[i] = getScorePourJoueur(i, this.tabTours);
 		}
+		cashPrize = _cashPrize;
 	}
 	
 	public String getWinners() {
-		return "Code ça";
+		ArrayList<Integer> winners = new ArrayList<Integer>();
+		String retour = "";
+		for (int i = 0; i < this.scores.length; i++) {
+			if (this.scores[i] == getWinnerScore(this.scores)) {
+				winners.add(i + 1);
+			}
+		}
+		
+		for (int j = 0; j < winners.size(); j++) {
+			retour += winners.get(j);
+			if (j != (winners.size() - 1)){
+				retour += "/";
+			}
+		}
+		return retour;
 	}
+	
+	
 	
 	public String getColor() {
 		ArrayList<String> colorNames = new ArrayList<String>();
@@ -49,6 +67,24 @@ public class Tournament {
 			}
 		}
 		return colorNames.get(bigBoyPos);	
+	}
+	
+	public double getPrizeValue() {
+		return (this.cashPrize / getNumberOfWinner());
+	}
+	
+	
+	
+	//METHODES PRIVEES
+	
+	private int getNumberOfWinner() {
+		int retour = 0;
+		for (int i = 0; i < this.scores.length; i++) {
+			if (this.scores[i] == getWinnerScore(this.scores)) {
+				retour ++;
+			}
+		}
+		return retour;
 	}
 	
 	private boolean isInList(String _test, ArrayList<String> _liste) {
@@ -82,14 +118,6 @@ public class Tournament {
 			}
 		}
 		return nbDouble;
-	}
-	
-	public int[] getScores() {
-		return this.scores;
-	}
-	
-	public ArrayList<String> getColors(){
-		return this.couleursTirees;
 	}
 	
 	//Retourne le nombre de joueurs qui ont participé

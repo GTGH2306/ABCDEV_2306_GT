@@ -4,10 +4,12 @@ public class App {
 
 	public static void main(String[] args) {
 		String[] colors = {"Bleu", "Vert", "Jaune", "Orange", "Rouge", "Marron"};
-		int [][] data = tournois(2, 5, 3);
-		Tournament tournoisDes = new Tournament(data, colors);
+		int [][] data = tournois(20, 20, 3);
+		Tournament tournoisDes = new Tournament(data, colors, 6000);
 		
 		System.out.println("Couleur gagnante: " + tournoisDes.getColor());
+		System.out.println(tournoisDes.getWinners());
+		System.out.println("Chaque gagnant gagne : " + tournoisDes.getPrizeValue() + "euros !");
 		
 	}
 	
