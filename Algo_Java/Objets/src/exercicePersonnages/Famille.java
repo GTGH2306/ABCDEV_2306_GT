@@ -4,7 +4,7 @@ public enum Famille {
 	CORSAIRE("Corsaire", "Eau"),
 	GARDIEN("Gardien", "Terre"),
 	MAGE("Mage", "Feu"),
-	PALADIN("¨Paladin", "Terre"),
+	PALADIN("Paladin", "Terre"),
 	SAGE("Sage", "Air");
 	
 	private String famille;

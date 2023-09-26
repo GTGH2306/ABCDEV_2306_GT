@@ -24,11 +24,10 @@ public class Personnage {
 	
 	public String toString() {
 		String retour = "";
+		retour += (this.famille + " (" + this.famille.getElement() + ")\t");
 		retour += ("Nom: " + this.nom + "\t");
-		retour += ("Puissance: " + this.puissance + "\t");
-		retour += ("Défense: " + this.defense + "\t");
-		retour += ("Pouvoir: " + this.pouvoir + "\t");
-		retour += ("Famille: " + this.famille + " (" + this.famille.getElement() + ")");
+		retour += ("Pouvoir: " + this.pouvoir);
+		
 		return retour;
 	}
 	
@@ -48,6 +47,18 @@ public class Personnage {
 			}
 		}
 		return retour;
+	}
+
+	public int getPuissance() {
+		return puissance;
+	}
+
+	public int getDefense() {
+		return defense;
+	}
+	
+	public String getNom() {
+		return nom;
 	}
 
 }
