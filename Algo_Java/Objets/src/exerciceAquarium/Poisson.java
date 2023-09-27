@@ -1,6 +1,6 @@
 package exerciceAquarium;
 
-public class Poisson extends Consommable {
+public class Poisson extends Entity {
 	
 	
 	
@@ -20,14 +20,18 @@ public class Poisson extends Consommable {
 	public Genre getGenre() {
 		return this.genre;
 	}
+	public Race getRace() {
+		return this.race;
+	}
 	
 	
-	public void manger(Consommable _bouffe) {
+	public void manger(Entity _bouffe) {
 		if ((this.race.isCarnivore() && _bouffe instanceof Poisson) || (this.race.isCarnivore() == false && _bouffe instanceof Algue)) {
-			System.out.println(this.getNom() + " mange " + _bouffe.getNom());
 			if (_bouffe instanceof Poisson) {
+				System.out.println(this.getNom() + " mange " + _bouffe.getNom());
 				_bouffe.getMaison().getPoissons().remove(_bouffe.getMaison().getPoissons().indexOf(_bouffe));
 			} else {
+				System.out.println(this.getNom() + " mange une " + _bouffe.getNom());
 				_bouffe.getMaison().getAlgues().remove(_bouffe.getMaison().getAlgues().indexOf(_bouffe));
 			}
 		} else {
@@ -35,7 +39,17 @@ public class Poisson extends Consommable {
 		}
 	}
 	
-	
+	@Override
+	public void comportement() {
+		int rdm;
+		if (this.race.carnivore) {
+			
+		} else {
+			rdm = (int) Math.floor(Math.random() * this.getMaison().getAlgues().size());
+			this.getMaison().getAlgues();
+		}
+		
+	}
 	
 	
 	

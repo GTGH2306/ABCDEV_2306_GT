@@ -1,11 +1,11 @@
 package exerciceAquarium;
 
-public class Consommable {
+public abstract class Entity {
 	
 	protected Aquarium maison = null;
 	protected String nom;
 	
-	public Consommable(String _nom) {
+	public Entity(String _nom) {
 		nom = _nom;
 	}
 
@@ -20,4 +20,6 @@ public class Consommable {
 	public void setMaison(Aquarium _maison) {
 		this.maison = _maison;
 	}
+	
+	public abstract void comportement();
 }
