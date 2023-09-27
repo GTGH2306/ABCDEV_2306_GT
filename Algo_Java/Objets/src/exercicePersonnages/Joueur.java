@@ -1,27 +1,26 @@
 package exercicePersonnages;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Joueur {
 	private String pseudo;
 	private int[] dateNaissance;
-	private ArrayList<Personnage> cartes;
+	protected ArrayList<Personnage> cartes;
+	private int pv;
+	private int star;
 	
 	public Joueur() {
-		Scanner sc = new Scanner(System.in);
 		dateNaissance = new int[3];
 		System.out.println("Saisissez Pseudo: ");
-		pseudo = sc.nextLine();
+		pseudo = Partie.sc.nextLine();
 		System.out.println("Saisissez jour de naissance: ");
-		dateNaissance[0] = sc.nextInt();
+		dateNaissance[0] = Partie.sc.nextInt();
 		System.out.println("Saisissez mois de naissance: ");
-		dateNaissance[1] = sc.nextInt();
+		dateNaissance[1] = Partie.sc.nextInt();
 		System.out.println("Saisissez année de naissance: ");
-		dateNaissance[2] = sc.nextInt();
+		dateNaissance[2] = Partie.sc.nextInt();
 		
 		cartes = new ArrayList<Personnage>();
-		sc.close();
 	}
 	
 	public Joueur(String _pseudo, int[] _dateNaissance) {
@@ -38,15 +37,39 @@ public class Joueur {
 	}
 	
 
-	public Personnage choisirCarte() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Choisissez une carte:\n");
-		for (int i = 0; i < this.cartes.size(); i++) {
-			System.out.println((i + 1) + ". " + cartes.get(i).getNom());
-		}
-		Personnage retour = cartes.get(sc.nextInt() - 1);
-		sc.close();
+	public Personnage jouerCarte() {
+		boolean valide;
+		int saisie;
+		do {
+			valide = true;
+			System.out.println(this.pseudo + " choisissez une carte:\n");
+			for (int i = 0; i < this.cartes.size(); i++) {
+				System.out.println((i + 1) + ". " + cartes.get(i).getNom());
+			}
+			saisie = Partie.sc.nextInt();
+			if (saisie > this.cartes.size() || saisie <= 0) {
+				System.out.println("Saisie invalide.");
+				valide = false;
+			}
+		} while (!valide);
+		
+		saisie --;
+		Personnage retour = this.cartes.get(saisie);
+		this.cartes.remove(saisie);
 		return retour;
+	}
+	
+	public int jouerStar() {
+		int saisie;
+		do {
+			System.out.println("Saisissez le nombre d'étoiles que vous voulez jouer:\t(Vous en avez " + this.star + ")");
+			saisie = Partie.sc.nextInt();
+			if (saisie > this.getStar() || saisie < 0) {
+				System.out.println("Saisie invalide.");
+			}
+		} while (saisie > this.getStar() || saisie < 0);
+		this.star -= saisie;
+		return saisie;
 	}
 	
 	public void tirerCartes(int _nombre, ArrayList<Personnage> _jeu) {
@@ -85,6 +108,26 @@ public class Joueur {
 			}
 		} while (!valide);
 		return _jeu.get(rdm);
+	}
+
+	public int getPv() {
+		return pv;
+	}
+
+	public void setPv(int pv) {
+		this.pv = pv;
+	}
+
+	public int getStar() {
+		return star;
+	}
+
+	public void setStar(int star) {
+		this.star = star;
+	}
+	
+	public String getPseudo() {
+		return this.pseudo;
 	}
 	
 }
