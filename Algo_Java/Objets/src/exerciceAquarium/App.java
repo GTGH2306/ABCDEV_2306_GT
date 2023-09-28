@@ -1,15 +1,19 @@
 package exerciceAquarium;
 
+import javax.swing.UIManager;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
 public class App {
 
-	public static void main(String[] args) {		
-		Aquarium joyeuxVille = new Aquarium(6);
+	public static void main(String[] args) throws Exception {		
+		Aquarium joyeuxVille = new Aquarium(1);
+		//Met un style, avant la création de la fenêtre, sinon ce ne sera pas bon
+		UIManager.setLookAndFeel(new NimbusLookAndFeel()); 
 		
-		joyeuxVille.tour();
-		joyeuxVille.getPoissons().get(3).manger(joyeuxVille.getPoissons().get(1));
-		joyeuxVille.getPoissons().get(2).manger(joyeuxVille.getAlgues().get(1));
-		joyeuxVille.getPoissons().get(1).manger(joyeuxVille.getAlgues().get(1));
-		joyeuxVille.tour();
-
+		MainWindow myWindow = new MainWindow(joyeuxVille); //Créer un objet JFrame (une fenêtre)
+		myWindow.setVisible(true); //Rend la fenêtre visible
+		//La fenêtre doit être mis en visible qu'à la fin à moins d'utiliser myWindow.revalidate(); pour la reload
+		
+		System.out.println("Fin de programme.");
 	}
 }

@@ -13,10 +13,13 @@ public class Aquarium {
 	private int tour = 0;
 	//Liste de poissons par défaut
 	private static ArrayList<Poisson> defautPoissons = new ArrayList<Poisson>(Arrays.asList(
-			new Poisson("Michel", Genre.MALE, Race.MEROU),
-			new Poisson("Louis", Genre.MALE, Race.CARPE),
-			new Poisson("Dori", Genre.FEMELLE, Race.SOLE),
-			new Poisson("L'inquisitrice", Genre.FEMELLE, Race.MEROU)
+			new Poisson("Michel", Genre.MALE, Race.MEROU, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("Louis", Genre.MALE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("Dori", Genre.FEMELLE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("Florent", Genre.MALE, Race.POISSONCLOWN, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("L'inquisitrice", Genre.FEMELLE, Race.MEROU, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("Saucisson", Genre.FEMELLE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("Bartaba", Genre.MALE, Race.BAR, (int)Math.floor((Math.random() * 4) + 1))
 			));
 	
 	
@@ -24,7 +27,8 @@ public class Aquarium {
 		poissons = new ArrayList<Poisson>(_poissons);
 		algues = new ArrayList<Algue>();
 		for (int i = 0; i < _nbAlgues; i++){
-			algues.add(new Algue());
+			int rdm = (int)Math.floor((Math.random() * 4) + 1);
+			algues.add(new Algue(rdm));
 		}
 		for (int i = 0; i < poissons.size(); i++) {
 			poissons.get(i).setMaison(this);;
@@ -44,7 +48,30 @@ public class Aquarium {
 	public void tour(){
 		tour ++;
 		System.out.println("----TOUR " + this.tour + "----");
-		afficherInfos();
+		for (int i = 0; i < this.algues.size(); i++) {
+			if (this.algues.get(i).isAlive()) {
+				this.algues.get(i).comportement();
+			}
+		}
+		for (int i = 0; i < this.poissons.size(); i++) {
+			if (this.poissons.get(i).isAlive()) {
+			this.poissons.get(i).comportement();
+			}
+		}
+		for (int i = 0; i < this.poissons.size(); i++) {
+			if (!this.poissons.get(i).isAlive()) {
+				this.poissons.get(i).meurt();
+				i--;
+			}
+		}
+		for (int i = 0; i < this.algues.size(); i++) {
+			if (!this.algues.get(i).isAlive()) {
+				this.algues.get(i).meurt();
+				i--;
+			}
+		}
+		
+		//afficherInfos();
 	}
 	
 	public void afficherInfos() {
@@ -60,6 +87,10 @@ public class Aquarium {
 	}
 	public ArrayList<Algue> getAlgues(){
 		return this.algues;
+	}
+	
+	public int getTour() {
+		return this.tour;
 	}
 	
 }
