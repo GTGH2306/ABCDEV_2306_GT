@@ -2,12 +2,15 @@ package exerciceAquarium;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Poisson extends Entity {
 	
 	
 	
 	private Genre genre;
 	private Race race;
+	private boolean reproduced;
 	
 	
 	public Poisson(String _nom, Genre _genre, Race _race, int _age) {
@@ -98,18 +101,64 @@ public class Poisson extends Entity {
 					manger(this.getMaison().getAlgues().get(indexAlgueMordu));
 				}
 			}
+		} else {
+			seReproduire();
 		}
-		
 	}
 	
 	@Override
 	public void seReproduire() {
-		if (this.isAlive()) {
-			
+		ArrayList<Poisson> ciblesPossible = new ArrayList<Poisson>();
+		boolean naissance = false;
+		int rdm;
+		Genre genreBebe = null;
+		if (this.isAlive() && !this.hasReproduced() && this.getPv() > 5) {
+			if (this.getGenre().equals(Genre.MALE) || this.getGenre().equals(Genre.FEMELLE)) {
+				for (int i = 0; i < this.getMaison().getPoissons().size(); i++) {
+					if (!(this.getMaison().getPoissons().get(i).equals(this))) {
+						ciblesPossible.add(this.getMaison().getPoissons().get(i));
+					}
+				}
+				rdm = (int) Math.floor(Math.random() * ciblesPossible.size());
+				if ((ciblesPossible.get(rdm).getGenre().equals(Genre.FEMELLE) && this.getGenre().equals(Genre.MALE) ||
+					ciblesPossible.get(rdm).getGenre().equals(Genre.MALE) && this.getGenre().equals(Genre.FEMELLE)) &&
+					ciblesPossible.get(rdm).getRace().equals(this.getRace())
+					) {
+					naissance = true;
+					ciblesPossible.get(rdm).setReproduced(true);
+					this.setReproduced(true);
+					int rdm2 = (int) Math.floor(Math.random() * 2);
+					if (rdm2 == 1) {
+						genreBebe = Genre.MALE;
+					} else {
+						genreBebe = Genre.FEMELLE;
+					}
+					System.out.println(this.getNom() + " c'est reproduit avec " + ciblesPossible.get(rdm).getNom());
+				} else {
+					System.out.println(this.getNom() + " à tenté de ce reproduire avec " + ciblesPossible.get(rdm).getNom() + " sans succès.");
+				}
+			}
 		}
-		
+		if (naissance) {
+			String userInput = "";
+			userInput = JOptionPane.showInputDialog("Nouvelle naissance!\t(Genre: " + genreBebe.getNom() + ")\t(Espece: " + this.getRace().getNom() + ")\nSaisissez nom du Poisson: ");
+			if (userInput.equals("")) {
+				userInput = "Sans nom";
+			}
+			Poisson bebe = new Poisson(userInput, genreBebe, this.race, 0);
+			bebe.setMaison(this.getMaison());
+			bebe.setPv((int) Math.floor(Math.random() * (6 - 2 + 1) + 2));
+			this.getMaison().getPoissons().add(bebe);
+		}	
 	}
 	
+	public boolean hasReproduced() {
+		return this.reproduced;
+	}
+	
+	public void setReproduced(boolean _reproduced) {
+		this.reproduced = _reproduced;
+	}
 	
 	
 	
@@ -117,18 +166,22 @@ public class Poisson extends Entity {
 	//ENUMS
 	
 	public enum Genre{
-		MALE("Mâle"),
-		FEMELLE("Femelle");
+		MALE("Mâle", false),
+		FEMELLE("Femelle", false);
 		
 		private String nom;
 		
-		private Genre(String _nom) {
+		private Genre(String _nom, boolean _reproduced) {
 			nom = _nom;
 		}
 		
 		public String getNom(){
 			return nom;
 		}
+		
+		
+		
+		
 	}
 	
 	public enum Race{

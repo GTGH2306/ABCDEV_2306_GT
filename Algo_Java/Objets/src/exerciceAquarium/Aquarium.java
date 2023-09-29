@@ -16,10 +16,13 @@ public class Aquarium {
 			new Poisson("Michel", Genre.MALE, Race.MEROU, (int)Math.floor((Math.random() * 4) + 1)),
 			new Poisson("Louis", Genre.MALE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1)),
 			new Poisson("Dori", Genre.FEMELLE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Florent", Genre.MALE, Race.POISSONCLOWN, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("Sushi", Genre.MALE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("Nemo", Genre.MALE, Race.POISSONCLOWN, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("Gardevoir", Genre.FEMELLE, Race.POISSONCLOWN, (int)Math.floor((Math.random() * 4) + 1)),
 			new Poisson("L'inquisitrice", Genre.FEMELLE, Race.MEROU, (int)Math.floor((Math.random() * 4) + 1)),
 			new Poisson("Saucisson", Genre.FEMELLE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Bartaba", Genre.MALE, Race.BAR, (int)Math.floor((Math.random() * 4) + 1))
+			new Poisson("Bartaba", Genre.MALE, Race.BAR, (int)Math.floor((Math.random() * 4) + 1)),
+			new Poisson("Optimus Prime", Genre.FEMELLE, Race.BAR, (int)Math.floor((Math.random() * 4) + 1))
 			));
 	
 	
@@ -42,34 +45,42 @@ public class Aquarium {
 		this(defautPoissons, _nbAlgues);
 	}
 	public Aquarium() {
-		this(8);
+		this(4);
 	}
 	
 	public void tour(){
 		tour ++;
+		int sizePoissonsTour = this.poissons.size();
+		int sizeAlguesTour = this.algues.size();
+		
+		for (int i = 0; i < sizePoissonsTour; i++) { //Remet les poissons à l'état "ne c'est pas reproduit" ce tour
+			this.poissons.get(i).setReproduced(false);
+		}
 		System.out.println("----TOUR " + this.tour + "----");
-		for (int i = 0; i < this.algues.size(); i++) {
+		for (int i = 0; i < sizeAlguesTour; i++) { //Fais le comportement qu'on les algues à chaque tours
 			if (this.algues.get(i).isAlive()) {
 				this.algues.get(i).comportement();
 			}
 		}
-		for (int i = 0; i < this.poissons.size(); i++) {
+		for (int i = 0; i < sizePoissonsTour; i++) { //Fais le comportement qu'on les poissons à chaque tours
 			if (this.poissons.get(i).isAlive()) {
 			this.poissons.get(i).comportement();
 			}
 		}
-		for (int i = 0; i < this.poissons.size(); i++) {
+		for (int i = 0; i < this.poissons.size(); i++) { //Clear les poissons morts
 			if (!this.poissons.get(i).isAlive()) {
 				this.poissons.get(i).meurt();
 				i--;
 			}
 		}
-		for (int i = 0; i < this.algues.size(); i++) {
+		for (int i = 0; i < this.algues.size(); i++) { //Clear les algues mortes
 			if (!this.algues.get(i).isAlive()) {
 				this.algues.get(i).meurt();
 				i--;
 			}
 		}
+		
+		
 		
 		//afficherInfos();
 	}
