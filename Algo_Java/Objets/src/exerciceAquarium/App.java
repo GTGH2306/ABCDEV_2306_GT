@@ -6,12 +6,12 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 public class App {
 
 	public static void main(String[] args) throws Exception {		
-		Aquarium joyeuxVille = new Aquarium(3);
+//		Aquarium joyeuxVille = new Aquarium(4);
 		//Met un style, avant la création de la fenêtre, sinon ce ne sera pas bon
 		UIManager.setLookAndFeel(new NimbusLookAndFeel()); 
 		
-		MainWindow myWindow = new MainWindow(joyeuxVille); //Créer un objet JFrame (une fenêtre)
-		myWindow.setVisible(true); //Rend la fenêtre visible
+//		MainWindow myWindow = new MainWindow(joyeuxVille); //Créer un objet JFrame (une fenêtre)
+		MainWindow.myWindow.setVisible(true); //Rend la fenêtre visible
 		//La fenêtre doit être mis en visible qu'à la fin à moins d'utiliser myWindow.revalidate(); pour la reload
 		
 	}

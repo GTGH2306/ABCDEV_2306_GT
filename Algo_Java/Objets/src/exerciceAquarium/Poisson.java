@@ -9,15 +9,29 @@ public class Poisson extends Entity {
 	
 	
 	private Genre genre;
+	private SousGenre sousGenre;
 	private Race race;
 	private boolean reproduced;
+	private int tourNaissance;
 	
 	
-	public Poisson(String _nom, Genre _genre, Race _race, int _age) {
+	public Poisson(String _nom,Genre _genre , Race _race, int _age, int _naissance) {
 		super(_nom);
-		genre = _genre;
 		race = _race;
 		age = _age;
+		sousGenre = SousGenre.getSousGenre(this);
+		genre = _genre;
+		tourNaissance = _naissance;
+	}
+	
+	
+	public Poisson(String _nom, Race _race, int _age, int _naissance) {
+		super(_nom);
+		race = _race;
+		age = _age;
+		sousGenre = SousGenre.getSousGenre(this);
+		genre = Genre.getGenre(this);
+		tourNaissance = _naissance;
 	}
 	
 	public String toString() {
@@ -27,8 +41,14 @@ public class Poisson extends Entity {
 	public Genre getGenre() {
 		return this.genre;
 	}
+	public void setGenre(Genre _genre) {
+		this.genre = _genre;
+	}
 	public Race getRace() {
 		return this.race;
+	}
+	public SousGenre getSousGenre() {
+		return this.sousGenre;
 	}
 	
 	
@@ -66,7 +86,11 @@ public class Poisson extends Entity {
 			System.out.println(this.getNom() + " meurt de faim.");
 			this.vivant = false;
 		}
-		this.age ++;
+		
+		if (!(this.getMaison().getTour() == this.tourNaissance)) {
+			this.age ++;
+		}
+		
 		if(age >= 20) {
 			System.out.println(this.getNom() + " meurt de vieilesse.");
 			this.vivant = false;
@@ -84,7 +108,7 @@ public class Poisson extends Entity {
 					rdm = (int) Math.floor(Math.random() * ciblesPossible.size());
 					int indexPoissonMordu = ciblesPossible.get(rdm);
 					if (this.getMaison().getPoissons().get(indexPoissonMordu).race.equals(this.race)) {
-						System.out.println(this.getNom() + " à voulu manger " + this.getMaison().getPoissons().get(indexPoissonMordu).getNom() + " mais ils sont de la même race.");
+//						System.out.println(this.getNom() + " à voulu manger " + this.getMaison().getPoissons().get(indexPoissonMordu).getNom() + " mais ils sont de la même race.");
 					} else {
 						manger(this.getMaison().getPoissons().get(indexPoissonMordu));
 					}
@@ -104,6 +128,7 @@ public class Poisson extends Entity {
 		} else {
 			seReproduire();
 		}
+		MainWindow.myWindow.refresh();
 	}
 	
 	@Override
@@ -111,7 +136,9 @@ public class Poisson extends Entity {
 		ArrayList<Poisson> ciblesPossible = new ArrayList<Poisson>();
 		boolean naissance = false;
 		int rdm;
-		Genre genreBebe = null;
+		
+		SousGenre.hermaAgeCheck(this);
+		
 		if (this.isAlive() && !this.hasReproduced() && this.getPv() > 5) {
 			if (this.getGenre().equals(Genre.MALE) || this.getGenre().equals(Genre.FEMELLE)) {
 				for (int i = 0; i < this.getMaison().getPoissons().size(); i++) {
@@ -120,32 +147,40 @@ public class Poisson extends Entity {
 					}
 				}
 				rdm = (int) Math.floor(Math.random() * ciblesPossible.size());
-				if ((ciblesPossible.get(rdm).getGenre().equals(Genre.FEMELLE) && this.getGenre().equals(Genre.MALE) ||
-					ciblesPossible.get(rdm).getGenre().equals(Genre.MALE) && this.getGenre().equals(Genre.FEMELLE)) &&
-					ciblesPossible.get(rdm).getRace().equals(this.getRace())
-					) {
-					naissance = true;
-					ciblesPossible.get(rdm).setReproduced(true);
-					this.setReproduced(true);
-					int rdm2 = (int) Math.floor(Math.random() * 2);
-					if (rdm2 == 1) {
-						genreBebe = Genre.MALE;
+				if (ciblesPossible.size() > 0) {
+					if (((ciblesPossible.get(rdm).getGenre().equals(Genre.FEMELLE) && this.getGenre().equals(Genre.MALE) ||
+						ciblesPossible.get(rdm).getGenre().equals(Genre.MALE) && this.getGenre().equals(Genre.FEMELLE)) ||
+						this.getSousGenre().equals(SousGenre.HERMAOPPO)) &&
+						ciblesPossible.get(rdm).getRace().equals(this.getRace()) &&
+						!ciblesPossible.get(rdm).hasReproduced() &&
+						this.getMaison().getPoissons().size() < 25
+						) {
+						if (this.getSousGenre().equals(SousGenre.HERMAOPPO) && ciblesPossible.get(rdm).getGenre().equals(Genre.MALE) && this.getGenre().equals(Genre.MALE)) {
+							this.setGenre(Genre.FEMELLE);
+							System.out.println(this.getNom() + " devient une femelle pour pouvoir ce reproduire.");
+						} else if ((this.getSousGenre().equals(SousGenre.HERMAOPPO) && ciblesPossible.get(rdm).getGenre().equals(Genre.FEMELLE)) && this.getGenre().equals(Genre.FEMELLE)) {
+							this.setGenre(Genre.MALE);
+							System.out.println(this.getNom() + " devient un mâle pour pouvoir ce reproduire.");
+						}
+						
+						naissance = true;
+						ciblesPossible.get(rdm).setReproduced(true);
+						this.setReproduced(true);
+						
+						System.out.println(this.getNom() + " c'est reproduit avec " + ciblesPossible.get(rdm).getNom());
 					} else {
-						genreBebe = Genre.FEMELLE;
+	//					System.out.println(this.getNom() + " à tenté de ce reproduire avec " + ciblesPossible.get(rdm).getNom() + " sans succès.");
 					}
-					System.out.println(this.getNom() + " c'est reproduit avec " + ciblesPossible.get(rdm).getNom());
-				} else {
-					System.out.println(this.getNom() + " à tenté de ce reproduire avec " + ciblesPossible.get(rdm).getNom() + " sans succès.");
 				}
 			}
 		}
 		if (naissance) {
 			String userInput = "";
-			userInput = JOptionPane.showInputDialog("Nouvelle naissance!\t(Genre: " + genreBebe.getNom() + ")\t(Espece: " + this.getRace().getNom() + ")\nSaisissez nom du Poisson: ");
+			userInput = JOptionPane.showInputDialog("Nouvelle naissance! (Espece: " + this.getRace().getNom() + ")\nSaisissez nom du Poisson: ");
 			if (userInput.equals("")) {
 				userInput = "Sans nom";
 			}
-			Poisson bebe = new Poisson(userInput, genreBebe, this.race, 0);
+			Poisson bebe = new Poisson(userInput, this.race, 0, this.getMaison().getTour());
 			bebe.setMaison(this.getMaison());
 			bebe.setPv((int) Math.floor(Math.random() * (6 - 2 + 1) + 2));
 			this.getMaison().getPoissons().add(bebe);
@@ -165,13 +200,13 @@ public class Poisson extends Entity {
 	
 	//ENUMS
 	
-	public enum Genre{
-		MALE("Mâle", false),
-		FEMELLE("Femelle", false);
+	public enum Genre {
+		MALE("Mâle"),
+		FEMELLE("Femelle");
 		
 		private String nom;
 		
-		private Genre(String _nom, boolean _reproduced) {
+		private Genre(String _nom) {
 			nom = _nom;
 		}
 		
@@ -179,12 +214,50 @@ public class Poisson extends Entity {
 			return nom;
 		}
 		
+		public static Genre getGenre(Poisson _poisson) {
+			Genre retour;
+			int rdm2 = (int) Math.floor(Math.random() * 2);
+			if (rdm2 == 1 || _poisson.sousGenre.equals(SousGenre.HERMAAGE)) {
+				retour = Genre.MALE;
+			} else {
+				retour = Genre.FEMELLE;
+			}
+			return retour;
+		}
+		
 		
 		
 		
 	}
 	
-	public enum Race{
+	public enum SousGenre {
+		MONOSEXUE,
+		HERMAAGE,
+		HERMAOPPO;
+		
+		public static SousGenre getSousGenre(Poisson _poisson) {
+			SousGenre retour;
+			if (_poisson.getRace().equals(Race.BAR) || _poisson.getRace().equals(Race.MEROU)) {
+				retour = HERMAAGE;
+			} else if (_poisson.getRace().equals(Race.SOLE) || _poisson.getRace().equals(Race.POISSONCLOWN)) {
+				retour = HERMAOPPO;
+			} else {
+				retour = MONOSEXUE;
+			}
+			return retour;
+		}
+		
+		
+		
+		public static void hermaAgeCheck(Poisson _poisson) {
+			if (_poisson.getSousGenre().equals(HERMAAGE) && _poisson.getGenre().equals(Genre.MALE) && _poisson.getAge() >= 10) {
+				_poisson.setGenre(Genre.FEMELLE);
+				System.out.println(_poisson.getNom() + " a changé de genre avec l'âge.");
+			}
+		}
+	}
+	
+	public enum Race {
 		MEROU("Mérou", true),
 		THON("Thon", true),
 		POISSONCLOWN("Poisson-Clown", true),
@@ -206,6 +279,33 @@ public class Poisson extends Entity {
 
 		public boolean isCarnivore() {
 			return carnivore;
+		}
+		
+		public static Race stringToRace(String _string) {
+			Race retour;
+			switch (_string) {
+			case "Mérou":
+				retour = MEROU;
+				break;
+			case "Thon":
+				retour = THON;
+				break;
+			case "Poisson-Clown":
+				retour = POISSONCLOWN;
+				break;
+			case "Sole":
+				retour = SOLE;
+				break;
+			case "Bar":
+				retour = BAR;
+				break;
+			case "Carpe":
+				retour = CARPE;
+				break;
+			default:
+				retour = null;
+			}
+			return retour;
 		}
 	}
 }

@@ -20,7 +20,7 @@ public class Algue extends Entity{
 	@Override
 	public void comportement() {
 		this.age ++;
-		if (pv > 0) {
+		if (pv > 0 && pv < 20) {
 			pv ++;
 		}
 		if(age >= 20) {
@@ -37,7 +37,7 @@ public class Algue extends Entity{
 
 	@Override
 	public void seReproduire() {
-		if (this.pv >= 10) {
+		if (this.pv >= 10 && this.getMaison().getAlgues().size() < 25) {
 			int halfPv = this.pv / 2;
 			this.pv = halfPv;
 			this.maison.getAlgues().add(new Algue(0, halfPv, this.maison));

@@ -13,16 +13,22 @@ public class Aquarium {
 	private int tour = 0;
 	//Liste de poissons par défaut
 	private static ArrayList<Poisson> defautPoissons = new ArrayList<Poisson>(Arrays.asList(
-			new Poisson("Michel", Genre.MALE, Race.MEROU, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Louis", Genre.MALE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Dori", Genre.FEMELLE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Sushi", Genre.MALE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Nemo", Genre.MALE, Race.POISSONCLOWN, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Gardevoir", Genre.FEMELLE, Race.POISSONCLOWN, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("L'inquisitrice", Genre.FEMELLE, Race.MEROU, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Saucisson", Genre.FEMELLE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Bartaba", Genre.MALE, Race.BAR, (int)Math.floor((Math.random() * 4) + 1)),
-			new Poisson("Optimus Prime", Genre.FEMELLE, Race.BAR, (int)Math.floor((Math.random() * 4) + 1))
+			new Poisson("Michel", Genre.MALE, Race.MEROU, (int)Math.floor((Math.random() * 15) + 1), 0),
+			new Poisson("Face de Merou", Genre.MALE, Race.MEROU, (int)Math.floor((Math.random() * 15) + 1), 0),
+			new Poisson("Louis", Genre.MALE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("Poële à frire", Genre.MALE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("Dori", Genre.FEMELLE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("Terminator", Genre.MALE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("Sushi", Genre.FEMELLE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("Nemo", Genre.MALE, Race.POISSONCLOWN, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("Gardevoir", Genre.FEMELLE, Race.POISSONCLOWN, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("L'inquisitrice", Genre.MALE, Race.MEROU, (int)Math.floor((Math.random() * 15) + 1), 0),
+			new Poisson("Saucisson", Genre.FEMELLE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("Bartaba", Genre.MALE, Race.BAR, (int)Math.floor((Math.random() * 15) + 1), 0),
+			new Poisson("Diabolo", Genre.MALE, Race.BAR, (int)Math.floor((Math.random() * 15) + 1), 0),
+			new Poisson("Optimus Prime", Genre.MALE, Race.BAR, (int)Math.floor((Math.random() * 15) + 1), 0),
+			new Poisson("Gros Thon", Genre.MALE, Race.THON, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("Biscotte", Genre.FEMELLE, Race.THON, (int)Math.floor((Math.random() * 4) + 1), 0)
 			));
 	
 	
@@ -47,6 +53,7 @@ public class Aquarium {
 	public Aquarium() {
 		this(4);
 	}
+	
 	
 	public void tour(){
 		tour ++;
