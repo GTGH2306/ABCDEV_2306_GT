@@ -2,24 +2,27 @@ package exercicePoupeeRusse;
 
 public class PoupeeRusse {
 	private boolean open;
-	private boolean pleine;
 	private int size;
-	private PoupeeRusse contenu;
+	private PoupeeRusse contenu, contenant;
 	private final static PoupeeRusse EMPTY = new PoupeeRusse(-1);
 	
 	public PoupeeRusse(int _size) {
 		this.size = _size;
 		this.open = false;
-		this.pleine = false;
+		this.contenant = EMPTY;
 		this.contenu = EMPTY;
 	}
 	
 	public void ouvrir() {
-		this.open = true;
+		if (this.contenant.equals(EMPTY)) {
+			this.open = true;
+		}
 	}
 	
 	public void fermer() {
-		this.open = false;
+		if (this.contenant.equals(EMPTY)) {
+			this.open = false;
+		}
 	}
 	
 	public void placerDans(PoupeeRusse p) {

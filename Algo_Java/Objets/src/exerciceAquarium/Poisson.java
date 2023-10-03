@@ -177,6 +177,9 @@ public class Poisson extends Entity {
 		if (naissance) {
 			String userInput = "";
 			userInput = JOptionPane.showInputDialog("Nouvelle naissance! (Espece: " + this.getRace().getNom() + ")\nSaisissez nom du Poisson: ");
+			if (userInput == null) {
+				userInput = "Sans nom";
+			}
 			if (userInput.equals("")) {
 				userInput = "Sans nom";
 			}
