@@ -26,17 +26,16 @@ public class PoupeeRusse {
 	}
 	
 	public void placerDans(PoupeeRusse p) {
-		if (!this.open && p.open && this.size < p.size && !p.pleine) {
+		if (!this.open && p.open && this.size < p.size && p.contenu.equals(EMPTY) && this.contenant.equals(EMPTY)) {
 			p.contenu = this;
-			p.pleine = true;
+			this.contenant = p;
 		}
 	}
 	
 	public void sortirDe(PoupeeRusse p) {
 		if (p.open && p.contenu == this) {
 			p.contenu = EMPTY;
-			p.pleine = false;
+			this.contenant = EMPTY;
 		}
 	}
-
 }
