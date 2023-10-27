@@ -11,12 +11,12 @@ public class Aquarium {
 	private ArrayList<Poisson> poissons;
 	private ArrayList<Algue> algues;
 	private int tour = 0;
-	//Liste de poissons par défaut
+	//Liste de poissons par defaut
 	private static ArrayList<Poisson> defautPoissons = new ArrayList<Poisson>(Arrays.asList(
 			new Poisson("Michel", Genre.MALE, Race.MEROU, (int)Math.floor((Math.random() * 15) + 1), 0),
 			new Poisson("Face de Merou", Genre.MALE, Race.MEROU, (int)Math.floor((Math.random() * 15) + 1), 0),
 			new Poisson("Louis", Genre.MALE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1), 0),
-			new Poisson("Poële à frire", Genre.MALE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1), 0),
+			new Poisson("Poele a frire", Genre.MALE, Race.CARPE, (int)Math.floor((Math.random() * 4) + 1), 0),
 			new Poisson("Dori", Genre.FEMELLE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1), 0),
 			new Poisson("Terminator", Genre.MALE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1), 0),
 			new Poisson("Sushi", Genre.FEMELLE, Race.SOLE, (int)Math.floor((Math.random() * 4) + 1), 0),
@@ -60,16 +60,16 @@ public class Aquarium {
 		int sizePoissonsTour = this.poissons.size();
 		int sizeAlguesTour = this.algues.size();
 		
-		for (int i = 0; i < sizePoissonsTour; i++) { //Remet les poissons à l'état "ne c'est pas reproduit" ce tour
+		for (int i = 0; i < sizePoissonsTour; i++) { //Remet les poissons ï¿½ l'ï¿½tat "ne c'est pas reproduit" ce tour
 			this.poissons.get(i).setReproduced(false);
 		}
 		System.out.println("----TOUR " + this.tour + "----");
-		for (int i = 0; i < sizeAlguesTour; i++) { //Fais le comportement qu'on les algues à chaque tours
+		for (int i = 0; i < sizeAlguesTour; i++) { //Fais le comportement qu'on les algues ï¿½ chaque tours
 			if (this.algues.get(i).isAlive()) {
 				this.algues.get(i).comportement();
 			}
 		}
-		for (int i = 0; i < sizePoissonsTour; i++) { //Fais le comportement qu'on les poissons à chaque tours
+		for (int i = 0; i < sizePoissonsTour; i++) { //Fais le comportement qu'on les poissons ï¿½ chaque tours
 			if (this.poissons.get(i).isAlive()) {
 			this.poissons.get(i).comportement();
 			}

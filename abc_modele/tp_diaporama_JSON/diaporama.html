@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Diaporama ASIE chargement ajax</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="img/logo.jpg" alt="logo Ponant" width="60"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Voyage Volcans Asie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Voyage USA côte ouest </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Voyage en Baie de Somme
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Le phare du Hourdel</a></li>
+                            <li><a class="dropdown-item" href="#">Les phoques et veaux marins du Hourdel</a></li>
+                            <li><a class="dropdown-item" href="#">L'Avocette de la vasière</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                    aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"
+                    aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7"
+                    aria-label="Slide 8"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="8"
+                    aria-label="Slide 9"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="9"
+                    aria-label="Slide 10"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="10"
+                    aria-label="Slide 11"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="11"
+                    aria-label="Slide 12"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="12"
+                    aria-label="Slide 13"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="13"
+                    aria-label="Slide 14"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="14"
+                    aria-label="Slide 15"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="15"
+                    aria-label="Slide 16"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="16"
+                    aria-label="Slide 17"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="17"
+                    aria-label="Slide 18"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="18"
+                    aria-label="Slide 19"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="19"
+                    aria-label="Slide 20"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="20"
+                    aria-label="Slide 21"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="21"
+                    aria-label="Slide 22"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="22"
+                    aria-label="Slide 23"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="23"
+                    aria-label="Slide 24"></button>
+
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/photos_volcans/1.jpg" class="d-block w-100" alt="L'Ile de Lombok vue depuis l'île de Trawangan (Iles Gili)">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>1</h5>
+                        <p>L'Ile de Lombok vue depuis l'île de Trawangan (Iles Gili)</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/2.jpg" class="d-block w-100" alt="Le volcan Agung, Bali.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>2</h5>
+                        <p>Le volcan Agung, Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/3.jpg" class="d-block w-100" alt="Construction d'une embarcation traditionnelle, Lovina Beach, Bali.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>3</h5>
+                        <p>Construction d'une embarcation traditionnelle, Lovina Beach, Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/4.jpg" class="d-block w-100" alt="Pêcheur artisanal sur la côte balinaise">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>4</h5>
+                        <p>Pêcheur artisanal sur la côte balinaise</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/5.jpg" class="d-block w-100" alt="Coucher de soleil sur la Mer de Bali">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>5</h5>
+                        <p>Coucher de soleil sur la Mer de Bali</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/6.jpg" class="d-block w-100" alt="Echange spirituel au temple hindou « Pura Ulun Danu », Bali.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>6</h5>
+                        <p>Echange spirituel au temple hindou « Pura Ulun Danu », Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/7.jpg" class="d-block w-100" alt="Scène de vie quotidienne (nourriture destinée aux cochons), Lovina Beach, Bali.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>7</h5>
+                        <p>Scène de vie quotidienne (nourriture destinée aux cochons), Lovina Beach, Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/8.jpg" class="d-block w-100" alt="Epouillage en règle à la forêt des singes d'Ubud ; cet animal est sacré pour les Balinais.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>8</h5>
+                        <p>Epouillage en règle à la forêt des singes d'Ubud ; cet animal est sacré pour les Balinais.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/9.jpg" class="d-block w-100" alt="Des singes en bordure de forêt d'Ubud, Bali.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>9</h5>
+                        <p>Des singes en bordure de forêt d'Ubud, Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/10.jpg" class="d-block w-100" alt="Arbre de la forêt des singes d'Ubud. Il s'agit de racines et non de lianes.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>10</h5>
+                        <p>Arbre de la forêt des singes d'Ubud. Il s'agit de racines et non de lianes.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/11.jpg" class="d-block w-100" alt="Crépuscule au temple hindou de Luhur Uluwatu, Bali.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>11</h5>
+                        <p>Crépuscule au temple hindou de Luhur Uluwatu, Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/12.jpg" class="d-block w-100" alt="Nénuphars du jardin aquatique de Tirta Gangga, Bali.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>12</h5>
+                        <p>Nénuphars du jardin aquatique de Tirta Gangga, Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/13.jpg" class="d-block w-100" alt="Coq dans une cage en bambou. Les combats de coqs sont interdits en dehors de l'enceinte des temples, mais les Balinais en sont friands et en organisent clandestinement.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>13</h5>
+                        <p>Coq dans une cage en bambou. Les combats de coqs sont interdits en dehors de l'enceinte des temples, mais les Balinais en sont friands et en organisent clandestinement.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/14.jpg" class="d-block w-100" alt="Rizières de Jatiluwih, Bali.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>14</h5>
+                        <p>Rizières de Jatiluwih, Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/15.jpg" class="d-block w-100" alt="Cratère du volcan Bromo, vénéré par les Javanais hindous. Haut-lieu de pèlerinage et d'offrandes, un temple est édifié à ses pieds. Ile de Java.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>15</h5>
+                        <p>Cratère du volcan Bromo, vénéré par les Javanais hindous. Haut-lieu de pèlerinage et d'offrandes, un temple est édifié à ses pieds. Ile de Java.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/16.jpg" class="d-block w-100" alt="Massif du Tengger, très fertile en raison des dépôts volcaniques. Les cultures se situent en bordure de la caldeira du Bromo. Une caldeira est une immense dépression formée consécutivement à l'effondrement de la chambre magmatique du volcan. Ile de Java.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>16</h5>
+                        <p>Massif du Tengger, très fertile en raison des dépôts volcaniques. Les cultures se situent en bordure de la caldeira du Bromo. Une caldeira est une immense dépression formée consécutivement à l'effondrement de la chambre magmatique du volcan. Ile de Java.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/17.jpg" class="d-block w-100" alt="Le Mont Bromo et sa caldeira, avec, en arrière-plan, le Semeru, qui  « explose » toutes les 30 mn environ et qui culmine à 3 676 m, en faisant le point culminant de l'île de Java.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>17</h5>
+                        <p>Le Mont Bromo et sa caldeira, avec, en arrière-plan, le Semeru, qui  « explose » toutes les 30 mn environ et qui culmine à 3 676 m, en faisant le point culminant de l'île de Java.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/18.jpg" class="d-block w-100" alt="Lac de cratère du volcan Batur, Bali.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>18</h5>
+                        <p>Lac de cratère du volcan Batur, Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/19.jpg" class="d-block w-100" alt="Cratère du Kawah Ijen et son lac acide, sans doute le plus acide au monde ; extrême ouest de Java. ">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>19</h5>
+                        <p>Cratère du Kawah Ijen et son lac acide, sans doute le plus acide au monde ; extrême ouest de Java. </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/20.jpg" class="d-block w-100" alt="Vapeur d'eau émanant du cratère du volcan Bromo. On remarque des dépôts soufrés sur ses parois.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>20</h5>
+                        <p>Vapeur d'eau émanant du cratère du volcan Bromo. On remarque des dépôts soufrés sur ses parois.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/21.jpg" class="d-block w-100" alt="Vapeur d'eau émanant du cratère du volcan Bromo. On remarque des dépôts soufrés sur ses parois.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>21</h5>
+                        <p>Vapeur d'eau émanant du cratère du volcan Bromo. On remarque des dépôts soufrés sur ses parois.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/22.jpg" class="d-block w-100" alt="Affleurement lors de l'ascension du Kawah Ijen, à l'extrême ouest de Java.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>22</h5>
+                        <p>Affleurement lors de l'ascension du Kawah Ijen, à l'extrême ouest de Java.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/23.jpg" class="d-block w-100" alt="Chargement de plaques de soufre extraites du cratère du Kawah Ijen, à l'extrême ouest de Java. La production est remontée à dos d'hommes, sans équipement particulier et peut peser jusqu'à 80kg.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>23</h5>
+                        <p>Chargement de plaques de soufre extraites du cratère du Kawah Ijen, à l'extrême ouest de Java. La production est remontée à dos d'hommes, sans équipement particulier et peut peser jusqu'à 80kg.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/photos_volcans/24.jpg" class="d-block w-100" alt="Zone d'extraction du soufre, dont les gaz concentrés dans des conduits se liquéfient et ruissellent, prenant une couleur orangée (environ 120 degrés). La fumée est extrêmement toxique. Une fois refroidi, le soufre sera cassé à la barre à mine et chargé dans de simples paniers.">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>24</h5>
+                        <p>Zone d'extraction du soufre, dont les gaz concentrés dans des conduits se liquéfient et ruissellent, prenant une couleur orangée (environ 120 degrés). La fumée est extrêmement toxique. Une fois refroidi, le soufre sera cassé à la barre à mine et chargé dans de simples paniers.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

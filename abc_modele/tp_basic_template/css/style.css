@@ -1,0 +1,173 @@
+body{
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    grid-template-rows: 200px auto;
+    font-family: Arial;
+    height: 100vh;
+    background-color: #bebebe;
+}
+
+header{
+    grid-column: 1/-1;
+    color: #CCCCCC;
+    text-align: center;
+}
+
+header > h1 {
+    position: absolute;
+    width: 100%;
+}
+
+header > img {
+    width: 100%;
+    height: 100%;
+}
+
+aside{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+aside > img{
+    width: 100%;
+}
+aside > div > h3{
+    margin: 10px;
+    text-align: center;
+    color: #085E8F;
+}
+aside > p   {
+    text-align: justify;
+    font-size: 13px;
+    padding-right: 5px;
+}
+
+nav{
+    background-color: #bebebe;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+nav > .title, nav > a{
+    background-color: #b1b1b1;
+}
+nav > a{
+    color: #085E8F;
+}
+
+.title {
+    margin-bottom: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center ;
+}
+aside > .title {
+    margin-bottom: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #b1b1b1;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    background-color: #cccccc;
+}
+
+main > .title{
+    background-color: #bebebe;
+}
+
+.title > h2 {
+    margin: 0;
+}
+
+nav > a > p{
+    margin-left: 10px;
+}
+
+section{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    gap: 20px;
+    
+}
+
+article {
+    width: 35%;
+    min-height: 13%;
+    background-color: #bebebe;
+    padding: 10px;
+}
+
+.bouton{
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: #085E8F;
+    padding: 5px;
+}
+.bouton >h3 {
+    margin: 0;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    main{
+        background-color: #111111;
+    }
+    body, nav, main > .title, article{
+        background-color: #212121;
+        color: #CCCCCC;
+    }
+    nav > .title, nav > a, aside > .title{
+        background-color: #303030;
+    }
+
+    nav > a, aside > .title > h3{
+        color: #09BCE0
+    }
+
+    aside > a > .bouton{
+        color: #111111;
+        background-color: #09BCE0;
+    }
+
+  }
+@media screen and (max-width: 768px) {
+    body{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    nav{
+        grid-column: 1/-2;
+    }
+    main{
+        grid-column: 1/-1;
+    }
+    aside{
+        grid-column: -2/-1;
+        grid-row: 2;
+    }
+    section{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 15px;
+        align-items: center;
+    }
+
+    article{
+        width: 90%;
+        min-height: 100px;
+
+    }
+}

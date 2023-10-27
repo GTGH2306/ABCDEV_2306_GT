@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+section{
+    background-color: #648a67;
+    font-size: 3em;
+    padding: 10px;
+    color:aliceblue;
+    min-height: 100px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: aliceblue;
+}
+
+#s1 {
+    width: 100vw;
+}
+
+#s2{
+    width: 25vw;
+}
+
+#s3, #s6, #s7, #s8, #s9{
+    width: 25vw;
+}
+
+#s4, #s5{
+    width: 50vw;
+}
+
+#s10{
+    width: 100%;
+}
+
+.box{
+    display: flex;
+
+    flex-wrap: wrap;
+    width: 75vw;
+}

@@ -47,14 +47,12 @@ public class PierreFeuilleCiseau {
 		boolean quit = false;
 		boolean win;
 		boolean lose;
-		boolean invalide = false;
 		int points_user = 0;
 		int points_ordi = 0;
 		
 		while (!quit) {
 			win = false;
 			lose = false;
-			invalide = false;
 			
 			do {
 				System.out.println("[Pierre, Feuille, Ciseaux]\nSaisissez 'P' pour Pierre, 'F' pour Feuille ou 'C' pour Ciseaux :");
@@ -79,7 +77,7 @@ public class PierreFeuilleCiseau {
 					System.out.println("L'ordi gagne !");
 					points_ordi ++;
 				} else {
-					System.out.println("Egalité !");
+					System.out.println("Egalitï¿½ !");
 				}
 			}
 			System.out.println("Vous : " + points_user + " points.\nL'ordi : " + points_ordi + " points.");
